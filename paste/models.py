@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import datetime
+
 from django.db import models
 from django.utils.crypto import get_random_string
 from django.utils.translation import ugettext as _
@@ -27,6 +29,7 @@ class PasteItem(models.Model):
     email = models.EmailField(_(u"Email"), null=True, blank=True)
     delete_period = models.PositiveIntegerField(_(u"Delete In"), choices=DELETE_PERIOD)
     session_id = models.CharField(verbose_name=_("Session Id"), max_length=64)
+    created_at = models.DateTimeField(verbose_name=_(u"Created At"), auto_now_add=True)
 
     def __unicode__(self):
         return self.title
@@ -34,6 +37,18 @@ class PasteItem(models.Model):
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.slug = unique_slugify(self, self.title.upper())
         return super(PasteItem, self).save()
+
+    def get_expiry_day(self):
+        now = datetime.datetime.now()
+        if self.delete_period == self.ONE_DAY:
+            return now.day - self.created_at.date().day + 1
+        elif self.delete_period == self.ONE_WEEK:
+            return now.day - self.created_at.date().day + 7
+        elif self.delete_period == self.ONE_MONTH:
+            return now.day - self.created_at.date().day + 30
+        elif self.delete_period == self.ONE_YEAR:
+            return now.day - self.created_at.date().day + 365
+        return 0
 
     @staticmethod
     def create_unique_session_id():

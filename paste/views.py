@@ -1,10 +1,8 @@
-import datetime
-
 from django.core.urlresolvers import reverse_lazy
 from django.http.response import HttpResponse
-from django.views.generic.base import View
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from paste.forms import PasteItemForm
 from paste.mixins import SessionMixin
@@ -48,3 +46,17 @@ class ItemDeleteView(DeleteView):
     model = PasteItem
     template_name = "delete_item.html"
     success_url = reverse_lazy("item-create")
+
+
+class ItemListView(ListView):
+    model = PasteItem
+    template_name = "list_item.html"
+
+    def get_queryset(self):
+        queryset = super(ItemListView, self).get_queryset()
+        session_id = self.request.COOKIES.get("sessionid")
+        if session_id:
+            queryset = queryset.filter(session_id=session_id)
+        else:
+            queryset = []
+        return queryset

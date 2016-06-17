@@ -36,6 +36,17 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>{% endcomment %}
+    <div id="navbar" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="{% block new %}{% endblock %}">
+          <a href="{% url 'item-create' %}">{% trans 'New' %}</a>
+        </li>
+        <li class="{% block yours %}{% endblock %}">
+          <a href="{% url 'item-list' %}">{% trans 'Yours' %}</a>
+        </li>
+        <li><a href="#">{% trans 'Contact' %}</a></li>
+      </ul>
+    </div>
     <!--/.nav-collapse -->
   </div>
 </nav>
