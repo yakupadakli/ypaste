@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
+from django.http.response import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
@@ -16,3 +17,12 @@ class ItemCreateView(CreateView):
 class ItemDetailView(DetailView):
     model = PasteItem
     template_name = "detail_item.html"
+
+
+class ItemRawDetailView(DetailView):
+    model = PasteItem
+    template_name = ""
+
+    def get(self, request, *args, **kwargs):
+        item = self.get_object()
+        return HttpResponse(item.content, content_type='text/plain')

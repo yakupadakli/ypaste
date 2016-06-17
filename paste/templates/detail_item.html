@@ -6,8 +6,10 @@
 {% block content %}
   <div class="row text-left">
     <div class="col-md-2">
-      <a href="#" type="button" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
-      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Raw Text' %}</a>
+      <a id="wrap" href="#" type="button" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
+      <a href="{% url 'item-raw-detail' object.slug %}" type="button" class="btn btn-default btn-block" target="_blank">
+        {% trans 'Raw Text' %}
+      </a>
       <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Duplicate' %}</a>
       <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Delete' %}</a>
       <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
@@ -16,4 +18,16 @@
       {{ object.content|highlighter:object.syntax.slug|safe }}
     </div>
   </div>
+{% endblock %}
+
+{% block extra_script %}
+  <script>
+    $(document).ready(function () {
+      $("#wrap").click(function () {
+        $(this).toggleClass("btn-primary");
+        $(this).toggleClass("btn-default");
+        $(".linenos").toggle();
+      });
+    });
+  </script>
 {% endblock %}
