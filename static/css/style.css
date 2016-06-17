@@ -17,3 +17,13 @@ body {
   color: #000;
   border-top: 1px solid #000;
 }
+
+.source {
+  min-width: 500px;
+}
+
+@media (max-width: 600px) {
+  .source {
+    min-width: auto;
+  }
+}

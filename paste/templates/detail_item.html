@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load highlight %}
+
+{% block content %}
+  <div class="row text-left">
+    <div class="col-md-2">
+      <a href="#" type="button" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
+      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Raw Text' %}</a>
+      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Duplicate' %}</a>
+      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Delete' %}</a>
+      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
+    </div>
+    <div class="col-md-8">
+      {{ object.content|highlighter:object.syntax.slug|safe }}
+    </div>
+  </div>
+{% endblock %}

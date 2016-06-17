@@ -13,3 +13,5 @@ class PasteItemForm(forms.ModelForm):
         for name, field in self.fields.iteritems():
             field.widget.attrs["title"] = field.label
             field.widget.attrs["class"] = "form-control"
+        syntax = self.fields['syntax']
+        syntax.queryset = syntax.queryset.filter(is_active=True).order_by("name")
