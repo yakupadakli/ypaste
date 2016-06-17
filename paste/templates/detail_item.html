@@ -10,7 +10,9 @@
       <a href="{% url 'item-raw-detail' object.slug %}" type="button" class="btn btn-default btn-block" target="_blank">
         {% trans 'Raw Text' %}
       </a>
-      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Duplicate' %}</a>
+      <a href="{% url 'item-duplicate-detail' object.slug %}" type="button" class="btn btn-default btn-block">
+        {% trans 'Duplicate' %}
+      </a>
       <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Delete' %}</a>
       <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
     </div>
