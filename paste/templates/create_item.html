@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+  <div class="row text-left">
+    <div class="col-md-6">
+      <form>
+        {% include 'form.html' with form=form %}
+        <button type="submit" class="btn btn-primary">{% trans 'Paste It' %}</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% load static from staticfiles %}
+{% load i18n %}
+{% load form_helpers %}
+
+<div class="{% if field.errors %}error{% endif %} ">
+  {% if field|is_checkbox %}
+    <div class="checkbox">
+      <label>
+        {{ field }}
+        <span class="bg-checkbox {% if field.checked %} checked {% endif %}"></span>
+        {{ field.label }}
+        {% if field.field.required %}
+          *
+        {% endif %}
+      </label>
+      {% if field.help_text %}
+        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="{{ field.help_text }}">
+        </i>
+      {% endif %}
+    </div>
+  {% elif field|is_radio %}
+    <div class="radio">
+      <label>
+        {{ field }}
+        <span class="bg-radio {% if field.checked %} checked {% endif %}"></span>
+        {{ field.label }}
+      </label>
+      {% if field.help_text %}
+        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="{{ field.help_text }}">
+        </i>
+      {% endif %}
+    </div>
+  {% elif field|is_file %}
+    <div class="form-group">
+      <label for="{{ field.label_for }}">
+        {{ field.label }}
+        {% if field.help_text %}
+          <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="{{ field.help_text }}">
+          </i>
+        {% endif %}
+      </label>
+      {{ field }}
+    </div>
+  {% else %}
+    <div class="form-group">
+      <label for="{{ field.label_for }}">
+        {{ field.label }}
+        {% if field.help_text %}
+          <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="{{ field.help_text }}">
+          </i>
+        {% endif %}
+      </label>
+      {{ field }}
+    </div>
+  {% endif %}
+  {% for error in field.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+  {% endfor %}
+</div>
