@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load highlight %}
+
+{% block content %}
+  <div class="row text-left">
+    <div class="col-md-4">
+      <h3 style="margin-top: 0px;">
+        {% trans 'Are you sure to delete?' %}
+      </h3>
+      <form method="post" action="{% url 'item-delete' object.slug %}">
+        {% csrf_token %}
+        <button type="submit" href="#" class="btn btn-danger">{% trans 'Yes, Delete' %}</button>
+        <a href="{% url 'item-detail' object.slug %}" type="button" class="btn btn-default">{% trans 'No, Keep it' %}</a>
+      </form>
+    </div>
+    <div class="col-md-8">
+      {{ object.content|highlighter:object.syntax.slug|safe }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_script %}
+  <script>
+    $(document).ready(function () {
+      $(".linenos").hide();
+    });
+  </script>
+{% endblock %}

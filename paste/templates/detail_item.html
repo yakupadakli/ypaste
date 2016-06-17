@@ -6,15 +6,17 @@
 {% block content %}
   <div class="row text-left">
     <div class="col-md-2">
-      <a id="wrap" href="#" type="button" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
-      <a href="{% url 'item-raw-detail' object.slug %}" type="button" class="btn btn-default btn-block" target="_blank">
+      <a id="wrap" href="#" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
+      <a href="{% url 'item-raw-detail' object.slug %}" class="btn btn-default btn-block" target="_blank">
         {% trans 'Raw Text' %}
       </a>
-      <a href="{% url 'item-duplicate-detail' object.slug %}" type="button" class="btn btn-default btn-block">
+      <a href="{% url 'item-duplicate' object.slug %}" class="btn btn-default btn-block">
         {% trans 'Duplicate' %}
       </a>
-      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Delete' %}</a>
-      <a href="#" type="button" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
+      <a href="{% url 'item-delete' object.slug %}" class="btn btn-default btn-block">
+        {% trans 'Delete' %}
+      </a>
+      <a href="#" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
     </div>
     <div class="col-md-8">
       {{ object.content|highlighter:object.syntax.slug|safe }}
