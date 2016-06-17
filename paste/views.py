@@ -1,13 +1,17 @@
+import datetime
+
 from django.core.urlresolvers import reverse_lazy
 from django.http.response import HttpResponse
+from django.views.generic.base import View
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from paste.forms import PasteItemForm
+from paste.mixins import SessionMixin
 from paste.models import PasteItem
 
 
-class ItemCreateView(CreateView):
+class ItemCreateView(SessionMixin, CreateView):
     model = PasteItem
     form_class = PasteItemForm
     template_name = "create_item.html"
@@ -31,7 +35,7 @@ class ItemRawDetailView(DetailView):
         return HttpResponse(item.content, content_type='text/plain')
 
 
-class ItemDuplicateView(UpdateView):
+class ItemDuplicateView(SessionMixin, UpdateView):
     model = PasteItem
     form_class = PasteItemForm
     template_name = "create_item.html"

@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.crypto import get_random_string
 from django.utils.translation import ugettext as _
 from ypaste.utils import unique_slugify
 
@@ -25,6 +26,7 @@ class PasteItem(models.Model):
     username = models.CharField(_(u"Your Name or Nick"), max_length=32)
     email = models.EmailField(_(u"Email"), null=True, blank=True)
     delete_period = models.PositiveIntegerField(_(u"Delete In"), choices=DELETE_PERIOD)
+    session_id = models.CharField(verbose_name=_("Session Id"), max_length=64)
 
     def __unicode__(self):
         return self.title
@@ -32,6 +34,14 @@ class PasteItem(models.Model):
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.slug = unique_slugify(self, self.title.upper())
         return super(PasteItem, self).save()
+
+    @staticmethod
+    def create_unique_session_id():
+        session_id = get_random_string(length=32, allowed_chars="abcdefghijklmnopqrstuvwxyz1234567890")
+        item = PasteItem.objects.first()
+        if item:
+            session_id = unique_slugify(item, session_id, slug_field_name="session_id", slug_separator="")
+        return session_id
 
 
 class Syntax(models.Model):
