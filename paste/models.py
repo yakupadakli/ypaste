@@ -30,7 +30,7 @@ class PasteItem(models.Model):
         return self.title
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.slug = unique_slugify(self, self.user.username.upper())
+        self.slug = unique_slugify(self, self.title.upper())
         return super(PasteItem, self).save()
 
 
@@ -42,5 +42,5 @@ class Syntax(models.Model):
         return self.name
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.slug = unique_slugify(self, self.user.username.upper())
+        self.slug = unique_slugify(self, self.name.upper())
         return super(Syntax, self).save()

@@ -1,0 +1,826 @@
+[
+{
+  "model": "paste.syntax",
+  "pk": 1,
+  "fields": {
+    "name": "ActionScript",
+    "slug": "actionscript"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 2,
+  "fields": {
+    "name": "Ada",
+    "slug": "ada"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 3,
+  "fields": {
+    "name": "Apache config",
+    "slug": "apache-config"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 4,
+  "fields": {
+    "name": "APL",
+    "slug": "apl"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 5,
+  "fields": {
+    "name": "AppleScript",
+    "slug": "applescript"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 6,
+  "fields": {
+    "name": "Awk",
+    "slug": "awk"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 7,
+  "fields": {
+    "name": "Bash",
+    "slug": "bash"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 8,
+  "fields": {
+    "name": "Bash session",
+    "slug": "bash-session"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 9,
+  "fields": {
+    "name": "Batchfile",
+    "slug": "batchfile"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 10,
+  "fields": {
+    "name": "BBCode",
+    "slug": "bbcode"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 11,
+  "fields": {
+    "name": "C",
+    "slug": "c"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 12,
+  "fields": {
+    "name": "C#",
+    "slug": "c-2"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 13,
+  "fields": {
+    "name": "C++",
+    "slug": "c-3"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 14,
+  "fields": {
+    "name": "Clojure",
+    "slug": "clojure"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 15,
+  "fields": {
+    "name": "COBOL",
+    "slug": "cobol"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 16,
+  "fields": {
+    "name": "CoffeeScript",
+    "slug": "coffeescript"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 17,
+  "fields": {
+    "name": "Coldfusion HTML",
+    "slug": "coldfusion-html"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 18,
+  "fields": {
+    "name": "Common Lisp",
+    "slug": "common-lisp"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 19,
+  "fields": {
+    "name": "CSS",
+    "slug": "css"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 20,
+  "fields": {
+    "name": "D",
+    "slug": "d"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 21,
+  "fields": {
+    "name": "Darcs patch",
+    "slug": "darcs-patch"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 22,
+  "fields": {
+    "name": "Dart",
+    "slug": "dart"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 23,
+  "fields": {
+    "name": "Debian sourcelist",
+    "slug": "debian-sourcelist"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 24,
+  "fields": {
+    "name": "Delphi",
+    "slug": "delphi"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 25,
+  "fields": {
+    "name": "Diff",
+    "slug": "diff"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 26,
+  "fields": {
+    "name": "DTD",
+    "slug": "dtd"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 27,
+  "fields": {
+    "name": "Dylan",
+    "slug": "dylan"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 28,
+  "fields": {
+    "name": "Eiffel",
+    "slug": "eiffel"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 29,
+  "fields": {
+    "name": "ERB",
+    "slug": "erb"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 30,
+  "fields": {
+    "name": "Erlang",
+    "slug": "erlang"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 31,
+  "fields": {
+    "name": "Factor",
+    "slug": "factor"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 32,
+  "fields": {
+    "name": "Fortran",
+    "slug": "fortran"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 33,
+  "fields": {
+    "name": "FoxPro",
+    "slug": "foxpro"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 34,
+  "fields": {
+    "name": "FSharp",
+    "slug": "fsharp"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 35,
+  "fields": {
+    "name": "Genshi",
+    "slug": "genshi"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 36,
+  "fields": {
+    "name": "Go",
+    "slug": "go"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 37,
+  "fields": {
+    "name": "Groff",
+    "slug": "groff"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 38,
+  "fields": {
+    "name": "Groovy",
+    "slug": "groovy"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 39,
+  "fields": {
+    "name": "Haml",
+    "slug": "haml"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 40,
+  "fields": {
+    "name": "Haskell",
+    "slug": "haskell"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 41,
+  "fields": {
+    "name": "HTML",
+    "slug": "html"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 42,
+  "fields": {
+    "name": "HTML + Django/Jinja template",
+    "slug": "html-djangojinja-template"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 43,
+  "fields": {
+    "name": "HTML + PHP",
+    "slug": "html-php"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 44,
+  "fields": {
+    "name": "INI",
+    "slug": "ini"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 45,
+  "fields": {
+    "name": "Io",
+    "slug": "io"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 46,
+  "fields": {
+    "name": "IRC logs",
+    "slug": "irc-logs"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 47,
+  "fields": {
+    "name": "ava",
+    "slug": "ava"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 48,
+  "fields": {
+    "name": "JavaScript",
+    "slug": "javascript"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 49,
+  "fields": {
+    "name": "avaScript + Django/Jinja template",
+    "slug": "avascript-djangojinja-template"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 50,
+  "fields": {
+    "name": "JavaScript + PHP",
+    "slug": "javascript-php"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 51,
+  "fields": {
+    "name": "JavaScript + Ruby",
+    "slug": "javascript-ruby"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 52,
+  "fields": {
+    "name": "JavaServer pages",
+    "slug": "javaserver-pages"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 53,
+  "fields": {
+    "name": "JSON",
+    "slug": "json"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 54,
+  "fields": {
+    "name": "Lasso",
+    "slug": "lasso"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 55,
+  "fields": {
+    "name": "Lighttpd config",
+    "slug": "lighttpd-config"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 56,
+  "fields": {
+    "name": "LLVM",
+    "slug": "llvm"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 57,
+  "fields": {
+    "name": "Lua",
+    "slug": "lua"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 58,
+  "fields": {
+    "name": "Makefile",
+    "slug": "makefile"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 59,
+  "fields": {
+    "name": "Mako",
+    "slug": "mako"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 60,
+  "fields": {
+    "name": "Mathematica",
+    "slug": "mathematica"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 61,
+  "fields": {
+    "name": "Matlab",
+    "slug": "matlab"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 62,
+  "fields": {
+    "name": "Modula-2",
+    "slug": "modula-2"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 63,
+  "fields": {
+    "name": "MoinMoin/Trac wiki markup",
+    "slug": "moinmointrac-wiki-markup"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 64,
+  "fields": {
+    "name": "Myghty",
+    "slug": "myghty"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 65,
+  "fields": {
+    "name": "nginx config",
+    "slug": "nginx-config"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 66,
+  "fields": {
+    "name": "Objective-C",
+    "slug": "objective-c"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 67,
+  "fields": {
+    "name": "OCaml",
+    "slug": "ocaml"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 68,
+  "fields": {
+    "name": "Perl",
+    "slug": "perl"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 69,
+  "fields": {
+    "name": "Perl 6",
+    "slug": "perl-6"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 70,
+  "fields": {
+    "name": "PHP",
+    "slug": "php"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 71,
+  "fields": {
+    "name": "Plain text",
+    "slug": "plain-text"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 72,
+  "fields": {
+    "name": "PostScript",
+    "slug": "postscript"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 73,
+  "fields": {
+    "name": "PowerShell",
+    "slug": "powershell"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 74,
+  "fields": {
+    "name": "Prolog",
+    "slug": "prolog"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 75,
+  "fields": {
+    "name": "Puppet",
+    "slug": "puppet"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 76,
+  "fields": {
+    "name": "Python 2",
+    "slug": "python-2"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 77,
+  "fields": {
+    "name": "Python 2 traceback",
+    "slug": "python-2-traceback"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 78,
+  "fields": {
+    "name": "Python 3",
+    "slug": "python-3"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 79,
+  "fields": {
+    "name": "Python 3 traceback",
+    "slug": "python-3-traceback"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 80,
+  "fields": {
+    "name": "Python console session",
+    "slug": "python-console-session"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 81,
+  "fields": {
+    "name": "Ragel",
+    "slug": "ragel"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 82,
+  "fields": {
+    "name": "reStructuredText",
+    "slug": "restructuredtext"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 83,
+  "fields": {
+    "name": "RHTML",
+    "slug": "rhtml"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 84,
+  "fields": {
+    "name": "Ruby",
+    "slug": "ruby"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 85,
+  "fields": {
+    "name": "Ruby irb session",
+    "slug": "ruby-irb-session"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 86,
+  "fields": {
+    "name": "Rust",
+    "slug": "rust"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 87,
+  "fields": {
+    "name": "Sass",
+    "slug": "sass"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 88,
+  "fields": {
+    "name": "Scala",
+    "slug": "scala"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 89,
+  "fields": {
+    "name": "Scheme",
+    "slug": "scheme"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 90,
+  "fields": {
+    "name": "SCSS",
+    "slug": "scss"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 91,
+  "fields": {
+    "name": "Shell session",
+    "slug": "shell-session"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 92,
+  "fields": {
+    "name": "Smalltalk",
+    "slug": "smalltalk"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 93,
+  "fields": {
+    "name": "Smarty template",
+    "slug": "smarty-template"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 94,
+  "fields": {
+    "name": "SPARQL",
+    "slug": "sparql"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 95,
+  "fields": {
+    "name": "SQL",
+    "slug": "sql"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 96,
+  "fields": {
+    "name": "Swift",
+    "slug": "swift"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 97,
+  "fields": {
+    "name": "Tcl",
+    "slug": "tcl"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 98,
+  "fields": {
+    "name": "TeX",
+    "slug": "tex"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 99,
+  "fields": {
+    "name": "text + Django/Jinja template",
+    "slug": "text-djangojinja-template"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 100,
+  "fields": {
+    "name": "VB.net",
+    "slug": "vbnet"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 101,
+  "fields": {
+    "name": "XML",
+    "slug": "xml"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 102,
+  "fields": {
+    "name": "XSLT",
+    "slug": "xslt"
+  }
+},
+{
+  "model": "paste.syntax",
+  "pk": 103,
+  "fields": {
+    "name": "YAML",
+    "slug": "yaml"
+  }
+}
+]
