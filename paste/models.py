@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
 
 import datetime
+import os
 
 from django.db import models
+from django.utils import timezone
 from django.utils.crypto import get_random_string
 from django.utils.translation import ugettext as _
 from ypaste.utils import unique_slugify
@@ -40,15 +42,11 @@ class PasteItem(models.Model):
 
     def get_remain_expiry_day(self):
         now = datetime.datetime.now()
-        if self.delete_period == self.ONE_DAY:
-            return 1 - (now.day - self.created_at.date().day)
-        elif self.delete_period == self.ONE_WEEK:
-            return 7 - (now.day - self.created_at.date().day)
-        elif self.delete_period == self.ONE_MONTH:
-            return 30 - (now.day - self.created_at.date().day)
-        elif self.delete_period == self.ONE_YEAR:
-            return 365 - (now.day - self.created_at.date().day)
-        return 0
+        return self.get_expiry_day() - (now.day - self.created_at.day)
+
+    def get_remain_expiry_hour(self):
+        now = datetime.datetime.now()
+        return now.hour - self.created_at.hour
 
     def get_expiry_day(self):
         if self.delete_period == self.ONE_DAY:
@@ -60,6 +58,21 @@ class PasteItem(models.Model):
         elif self.delete_period == self.ONE_YEAR:
             return 365
         return 0
+
+    def get_pasted_day(self):
+        return self.get_expiry_day() - self.get_remain_expiry_day()
+
+    def get_pasted_hour(self):
+        return self.get_remain_expiry_hour()
+
+    def get_size(self):
+        f = file(self.slug, "w")
+        f.write(self.content)
+        f.close()
+        stat_info = os.stat(self.slug)
+        size = stat_info.st_size
+        os.remove(self.slug)
+        return size
 
     @staticmethod
     def create_unique_session_id():

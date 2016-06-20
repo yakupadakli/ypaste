@@ -6,6 +6,12 @@
 {% block content %}
   <div class="row text-left">
     <div class="col-md-2">
+      <p>
+        {{ object.get_size }} {% trans 'bytes' %},
+        <strong>
+          {{ object.syntax.name }}
+        </strong>
+      </p>
       <a id="wrap" href="#" class="btn btn-primary btn-block">{% trans 'Wrap' %}</a>
       <a href="{% url 'item-raw-detail' object.slug %}" class="btn btn-default btn-block" target="_blank">
         {% trans 'Raw Text' %}
@@ -21,6 +27,16 @@
       </a>
     </div>
     <div class="col-md-8">
+      <p>
+        {% blocktrans with pasted_day=object.get_pasted_day pasted_hour=object.get_pasted_hour expiry=object.get_remain_expiry_day %}
+          Pasted {{ pasted_day }} days, {{ pasted_hour }} hours ago — Expires in {{ expiry }} days
+        {% endblocktrans %}
+        <span style="margin-left: 20%;">
+
+        </span>
+      </p>
+
+
       {{ object.content|highlighter:object.syntax.slug|safe }}
     </div>
   </div>
