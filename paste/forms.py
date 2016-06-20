@@ -1,20 +1,23 @@
 from django import forms
+from django.utils.translation import ugettext as _
 
 from paste.models import PasteItem
 
 
 class PasteItemForm(forms.ModelForm):
+    is_sent_email = forms.BooleanField(label=_(u"Sent Email To Me"), initial=False, required=False)
 
     class Meta:
         model = PasteItem
-        fields = ["content", "syntax", "title", "username", "email", "delete_period", "session_id"]
+        fields = ["content", "syntax", "title", "username", "email", "is_sent_email", "delete_period", "session_id"]
 
     def __init__(self, *args, **kwargs):
         self.session = kwargs.pop("session", "")
         super(PasteItemForm, self).__init__(*args, **kwargs)
         for name, field in self.fields.iteritems():
-            field.widget.attrs["title"] = field.label
-            field.widget.attrs["class"] = "form-control"
+            if name != "is_sent_email":
+                field.widget.attrs["title"] = field.label
+                field.widget.attrs["class"] = "form-control"
         session_id = self.fields['session_id']
         session_id.widget = forms.HiddenInput()
         session_id.required = False
@@ -24,11 +27,21 @@ class PasteItemForm(forms.ModelForm):
         syntax.queryset = syntax.queryset.filter(is_active=True).order_by("name")
 
     def save(self, commit=True):
-        obj = super(PasteItemForm, self).save()
-        if not obj.session_id:
-            obj.session_id = PasteItem.create_unique_session_id()
-            obj.save()
-        return obj
+        item = super(PasteItemForm, self).save()
+        if item.email:
+            pass
+
+        if not item.session_id:
+            item.session_id = PasteItem.create_unique_session_id()
+            item.save()
+        return item
+
+    def clean(self):
+        is_sent_email = self.cleaned_data.get("is_sent_email")
+        email = self.cleaned_data.get("email")
+        if is_sent_email and not email:
+            self.errors['email'] = [_(u"This field is required.")]
+        return self.cleaned_data
 
 
 class PasteItemExpiryForm(forms.ModelForm):
