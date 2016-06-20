@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext as _
+from paste.emails import EmailService
 
 from paste.models import PasteItem
 
@@ -29,7 +30,8 @@ class PasteItemForm(forms.ModelForm):
     def save(self, commit=True):
         item = super(PasteItemForm, self).save()
         if item.email:
-            pass
+            email_service = EmailService()
+            email_service.send_item_create_mail([item.email], item)
 
         if not item.session_id:
             item.session_id = PasteItem.create_unique_session_id()
