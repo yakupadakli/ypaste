@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'djcelery',
     'paste.apps.PasteConfig',
 )
 
@@ -131,3 +132,19 @@ SENDGRID_API_KEY = "SG.1NMOI93YTzqlnfktuTrvBg._PDx6G0ykzZQRbgiiAor_bwfZHPpKui_qG
 
 NO_REPLY_EMAIL = "noreply@yakupadakli.com"
 FROM_NAME = "YPaste"
+
+
+# Celery config
+import djcelery
+djcelery.setup_loader()
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+from celery.schedules import crontab
+CELERYBEAT_SCHEDULE = {
+    "delete-expired-items": {
+        "task": "delete-expired-items",
+        "schedule": crontab(minute=0, hour='*'),
+    },
+}
+
+CELERY_TIMEZONE = 'Europe/Istanbul'

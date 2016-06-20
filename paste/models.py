@@ -74,6 +74,15 @@ class PasteItem(models.Model):
         os.remove(self.slug)
         return size
 
+    def get_expiry_date(self):
+        return self.created_at + datetime.timedelta(days=self.get_expiry_day())
+
+    @property
+    def is_expired(self):
+        now = timezone.now()
+        expire_date = self.get_expiry_date()
+        return now > expire_date
+
     @staticmethod
     def create_unique_session_id():
         session_id = get_random_string(length=32, allowed_chars="abcdefghijklmnopqrstuvwxyz1234567890")
