@@ -33,7 +33,11 @@ class EmailService(object):
         subject = _(u"Item Created")
         data = highlighter_without_number_helper(paste_item.content, paste_item.syntax.name, css_class="ecxsource")
         context = {
-            "subject": subject, "data": data, "paste_url": reverse("item-detail", kwargs={"slug": paste_item.slug})
+            "subject": subject,
+            "data": data,
+            "paste_url": "%s%s" % (
+                getattr(settings, "BASE_URL"), reverse("item-detail", kwargs={"slug": paste_item.slug})
+            )
         }
         template_body = get_template('email/item_create_mail.html').render(Context(context))
         self.send_mail(subject, recipient_list, template_body)

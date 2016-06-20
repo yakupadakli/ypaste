@@ -39,6 +39,14 @@ app.controller('PasteItemCreateController', ['$scope', '$http', function ($scope
   $scope.$watch("syntax", function(newValue, oldValue) {
     $scope.test();
   });
+  $scope.$watch("is_sent_email", function(newValue, oldValue) {
+    if($scope.is_sent_email) {
+      $("input[name=email]").show();
+    }
+    else {
+      $("input[name=email]").hide();
+    }
+  });
 
   $scope.test = function (data) {
     // data = data.replace("\n", "<br />")

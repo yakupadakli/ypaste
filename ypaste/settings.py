@@ -25,6 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ogm$y1e_p(&+s(%i=i&dr@9ct*sqa#b#jne*p^%wprd71h&+^x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+PROD = False
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -102,6 +103,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+if PROD:
+    BASE_URL = "http://yakupadakli.com"
+else:
+    BASE_URL = "http://127.0.0.1:8000"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
