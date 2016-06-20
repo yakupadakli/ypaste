@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load highlight %}
+
+{% block content %}
+  <div class="row text-left">
+    <div class="col-md-8">
+      <h3 style="margin-top: 0px;">
+        {% blocktrans with expiry=object.get_expiry_day %}
+          Change Expiry (currently {{ expiry }} days)
+        {% endblocktrans %}
+      </h3>
+      <br />
+      <form method="post" action="{% url 'item-expiry' object.slug %}">
+        {% include 'form.html' %}
+        <button type="submit" class="btn btn-primary">{% trans 'Update' %}</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_script %}
+{% endblock %}

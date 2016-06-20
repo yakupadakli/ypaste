@@ -10,7 +10,7 @@ class SessionMixin(object):
         expires = datetime.datetime.strftime(
             datetime.datetime.utcnow() + datetime.timedelta(days=days_expire), "%a, %d-%b-%Y %H:%M:%S GMT"
         )
-        response.set_cookie(key, value, max_age=days_expire, expires=expires)
+        response.set_cookie(key, value, expires=expires)
 
     def get(self, request, *args, **kwargs):
         if self.request.COOKIES.get("sessionid"):

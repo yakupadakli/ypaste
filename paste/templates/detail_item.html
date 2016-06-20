@@ -16,7 +16,9 @@
       <a href="{% url 'item-delete' object.slug %}" class="btn btn-default btn-block">
         {% trans 'Delete' %}
       </a>
-      <a href="#" class="btn btn-default btn-block">{% trans 'Change Expiry' %}</a>
+      <a href="{% url 'item-expiry' object.slug %}" class="btn btn-default btn-block">
+        {% trans 'Change Expiry' %}
+      </a>
     </div>
     <div class="col-md-8">
       {{ object.content|highlighter:object.syntax.slug|safe }}

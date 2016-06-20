@@ -38,16 +38,27 @@ class PasteItem(models.Model):
         self.slug = unique_slugify(self, self.title.upper())
         return super(PasteItem, self).save()
 
-    def get_expiry_day(self):
+    def get_remain_expiry_day(self):
         now = datetime.datetime.now()
         if self.delete_period == self.ONE_DAY:
-            return now.day - self.created_at.date().day + 1
+            return 1 - (now.day - self.created_at.date().day)
         elif self.delete_period == self.ONE_WEEK:
-            return now.day - self.created_at.date().day + 7
+            return 7 - (now.day - self.created_at.date().day)
         elif self.delete_period == self.ONE_MONTH:
-            return now.day - self.created_at.date().day + 30
+            return 30 - (now.day - self.created_at.date().day)
         elif self.delete_period == self.ONE_YEAR:
-            return now.day - self.created_at.date().day + 365
+            return 365 - (now.day - self.created_at.date().day)
+        return 0
+
+    def get_expiry_day(self):
+        if self.delete_period == self.ONE_DAY:
+            return 1
+        elif self.delete_period == self.ONE_WEEK:
+            return 7
+        elif self.delete_period == self.ONE_MONTH:
+            return 30
+        elif self.delete_period == self.ONE_YEAR:
+            return 365
         return 0
 
     @staticmethod

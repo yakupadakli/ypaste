@@ -29,3 +29,19 @@ class PasteItemForm(forms.ModelForm):
             obj.session_id = PasteItem.create_unique_session_id()
             obj.save()
         return obj
+
+
+class PasteItemExpiryForm(forms.ModelForm):
+
+    class Meta:
+        model = PasteItem
+        fields = ("delete_period",)
+
+    def __init__(self, *args, **kwargs):
+        self.session = kwargs.pop("session", "")
+        super(PasteItemExpiryForm, self).__init__(*args, **kwargs)
+        for name, field in self.fields.iteritems():
+            field.widget.attrs["title"] = field.label
+            field.widget.attrs["class"] = "form-control"
+        delete_period = self.fields['delete_period']
+        delete_period.empty_label = None

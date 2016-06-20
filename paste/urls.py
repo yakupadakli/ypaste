@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from paste.views import (ItemCreateView, ItemDetailView, ItemRawDetailView, ItemDuplicateView, ItemDeleteView,
-                         ItemListView)
+                         ItemListView, ItemChangeExpiryView)
 
 urlpatterns = [
     url(r'^$', ItemCreateView.as_view(), name="item-create"),
@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^(?P<slug>[-A-Za-z0-9_]+).txt/$', ItemRawDetailView.as_view(), name="item-raw-detail"),
     url(r'^(?P<slug>[-A-Za-z0-9_]+)/duplicate/$', ItemDuplicateView.as_view(), name="item-duplicate"),
     url(r'^(?P<slug>[-A-Za-z0-9_]+)/delete/$', ItemDeleteView.as_view(), name="item-delete"),
+    url(r'^(?P<slug>[-A-Za-z0-9_]+)/expiry/$', ItemChangeExpiryView.as_view(), name="item-expiry"),
 ]
