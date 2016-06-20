@@ -1,5 +1,6 @@
 {% load static from staticfiles %}
 {% load i18n %}
+{% load form_helpers %}
 
 {% csrf_token %}
 {% for error in form.non_field_errors %}
@@ -9,9 +10,9 @@
 {% endfor %}
 
 {% for field in form.hidden_fields %}
-  {{ field }}
+  {{ field|add_ng_model }}
 {% endfor %}
 
 {% for field in form.visible_fields %}
-  {% include 'form_field.html' with field=field %}
+  {% include 'form_field.html' with field=field|add_ng_model %}
 {% endfor %}

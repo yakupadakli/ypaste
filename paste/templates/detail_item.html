@@ -28,15 +28,21 @@
     </div>
     <div class="col-md-8">
       <p>
-        {% blocktrans with pasted_day=object.get_pasted_day pasted_hour=object.get_pasted_hour expiry=object.get_remain_expiry_day %}
-          Pasted {{ pasted_day }} days, {{ pasted_hour }} hours ago — Expires in {{ expiry }} days
-        {% endblocktrans %}
+        {% with pasted_day=object.get_pasted_day pasted_hour=object.get_pasted_hour expiry=object.get_remain_expiry_day %}
+          {% if pasted_day == 0 and pasted_hour == 0 %}
+            {% blocktrans with expiry=expiry %}
+              Pasted now — Expires in {{ expiry }} days
+            {% endblocktrans %}
+          {% else %}
+            {% blocktrans with pasted_day=pasted_day pasted_hour=pasted_hour expiry=expiry %}
+              Pasted {{ pasted_day }} days, {{ pasted_hour }} hours ago — Expires in {{ expiry }} days
+            {% endblocktrans %}
+          {% endif %}
+        {% endwith %}
         <span style="margin-left: 20%;">
 
         </span>
       </p>
-
-
       {{ object.content|highlighter:object.syntax.slug|safe }}
     </div>
   </div>

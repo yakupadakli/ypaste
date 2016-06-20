@@ -27,3 +27,19 @@ def is_file(field):
 @register.filter
 def is_date_time(field):
     return isinstance(field.field.widget, forms.DateTimeInput)
+
+
+@register.filter
+def add_class(field, value):
+    existing_classes = field.field.widget.attrs.get("class")
+    existing_classes += " %s" % value
+    field.field.widget.attrs["class"] = existing_classes
+    return field
+
+
+@register.filter
+def add_ng_model(field):
+    field.field.widget.attrs["ng-model"] = field.name
+    if field.value():
+        field.field.widget.attrs["ng-init"] = "%s='%s'" % (field.name, field.value())
+    return field

@@ -17,7 +17,7 @@
   <link href="{% static 'css/pygments-css.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body ng-app="pasteApp">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -67,6 +67,8 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/angular.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
 
 {% block extra_script %}
 {% endblock %}

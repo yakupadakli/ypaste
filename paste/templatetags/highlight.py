@@ -9,8 +9,13 @@ register = template.Library()
 
 
 @register.filter(is_safe=True)
-def highlighter(content, name):
+def highlighter(content, name, linenos=True):
     lexer = get_lexer_by_name(name, stripall=True)
-    formatter = HtmlFormatter(cssclass="source", style=styles.get_style_by_name("friendly"), linenos=True)
+    formatter = HtmlFormatter(cssclass="source", style=styles.get_style_by_name("friendly"), linenos=linenos)
     result = highlight(content, lexer, formatter)
     return result
+
+
+@register.filter(is_safe=True)
+def highlighter_without_number(content, name):
+    return highlight(content, name, linenos=False)
