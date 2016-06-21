@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from paste.models import PasteItem, Syntax
+
+admin.site.register(PasteItem)
+admin.site.register(Syntax)
