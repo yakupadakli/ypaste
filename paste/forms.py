@@ -23,6 +23,8 @@ class PasteItemForm(forms.ModelForm):
         session_id.widget = forms.HiddenInput()
         session_id.required = False
         session_id.initial = self.session
+        if self.session:
+            self.initial["session_id"] = self.session
 
         syntax = self.fields['syntax']
         syntax.queryset = syntax.queryset.filter(is_active=True).order_by("name")
