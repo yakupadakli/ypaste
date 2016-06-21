@@ -28,7 +28,7 @@ SECRET_KEY = 'ogm$y1e_p(&+s(%i=i&dr@9ct*sqa#b#jne*p^%wprd71h&+^x'
 PROD = False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -116,13 +116,13 @@ else:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'yakup.adakli'
@@ -141,6 +141,8 @@ FROM_NAME = "YPaste"
 import djcelery
 djcelery.setup_loader()
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+djcelery.celery.autodiscover_tasks(lambda: INSTALLED_APPS)
 
 from celery.schedules import crontab
 CELERYBEAT_SCHEDULE = {
