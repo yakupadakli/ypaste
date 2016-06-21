@@ -31,7 +31,8 @@ class PasteItemForm(forms.ModelForm):
 
     def save(self, commit=True):
         item = super(PasteItemForm, self).save()
-        if item.email:
+        is_sent_email = self.cleaned_data.get("is_sent_email")
+        if is_sent_email and item.email:
             email_service = EmailService()
             email_service.send_item_create_mail([item.email], item)
 
