@@ -124,12 +124,6 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'yakup.adakli'
-EMAIL_HOST_PASSWORD = 'sendgrid_password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
 SENDGRID_API_KEY = "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"
 

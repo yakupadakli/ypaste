@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 
 import datetime
@@ -37,7 +39,10 @@ class PasteItem(models.Model):
         return self.title
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.slug = unique_slugify(self, self.title.upper())
+        # self.slug = unique_slugify(self, self.title.upper())
+        slug = get_random_string(length=8, allowed_chars="abcdefghijklmnopqrstuvwxyz1234567890")
+        self.slug = unique_slugify(self, slug.upper())
+        self.slug = self.slug.upper()
         return super(PasteItem, self).save()
 
     def get_remain_expiry_day(self):
