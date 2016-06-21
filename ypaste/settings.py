@@ -142,7 +142,7 @@ import djcelery
 djcelery.setup_loader()
 BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
-djcelery.celery.autodiscover_tasks(lambda: INSTALLED_APPS)
+CELERY_IMPORTS = ("paste.tasks",)
 
 from celery.schedules import crontab
 CELERYBEAT_SCHEDULE = {
