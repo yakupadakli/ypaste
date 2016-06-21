@@ -4,3 +4,8 @@
 4- Install rabbitmq
 5- Start celery -- python manage.py celeryd --loglevel INFO  -E -B -c 1 &
 6- python manage.py runserver
+
+
+### Example Site ###
+
+ypaste.yakupadakli.com
