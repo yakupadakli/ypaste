@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 # )
 
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = ""
 
 NO_REPLY_EMAIL = "noreply@yakupadakli.com"
 FROM_NAME = "YPaste"
